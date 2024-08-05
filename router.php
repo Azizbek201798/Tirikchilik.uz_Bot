@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $router = new Router();
 
 if($router->isTelegramUpdate()){
