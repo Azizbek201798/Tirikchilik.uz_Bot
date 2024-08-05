@@ -1,1 +1,1 @@
-# OqTepaLavash_Bot
+# Tirikchilik.uz_Bot
