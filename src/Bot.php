@@ -23,6 +23,7 @@ class Bot{
             'keyboard' => [
                 [['text' => '🔥 Maxsulotlar'],['text' => '📥 Savat']],
                 [['text' => '💼 Hamkorlik'],['text' => "ℹ️ Ma'lumot"]],
+                [['text' => '🌐 Tilni tanlash']],
             ],
             'resize_keyboard' => true,
             'one_time_keyboard' => true,
@@ -150,7 +151,7 @@ class Bot{
                         ]
                         ]);
                     }
-                    public function izoh(int $chat_id){
+                    public function izoh_alo(int $chat_id){
         
                         $keyboard = [
                             'keyboard' => [
@@ -169,5 +170,187 @@ class Bot{
                             ]
                             ]);
                         }
-                
-                }
+                        public function izoh_yaxshi(int $chat_id){
+        
+                            $keyboard = [
+                                'keyboard' => [
+                                    [['text' => '🔥 Maxsulotlar'],['text' => '📥 Savat']],
+                                    [['text' => '💼 Hamkorlik'],['text' => "ℹ️ Ma'lumot"]],
+                                ],
+                                'resize_keyboard' => true,
+                                'one_time_keyboard' => true,
+                            ];
+                            $encodedKeyboard = json_encode($keyboard);
+                            $this->http->post("sendMessage",[
+                                "form_params" => [
+                                    'chat_id' => $chat_id,
+                                    'text' => "Sizga yoqqanidan xursandmiz 😊. Bot ishlashini yaxshilash uchun qanday maslahatlaringiz bor?👇🏻",
+                                    'reply_markup' => $encodedKeyboard,
+                                ]
+                                ]);
+                            }
+                        public function qoniqarli(int $chat_id){
+    
+                            $keyboard = [
+                                'keyboard' => [
+                                    [['text' => '🔥 Maxsulotlar'],['text' => '📥 Savat']],
+                                    [['text' => '💼 Hamkorlik'],['text' => "ℹ️ Ma'lumot"]],
+                                ],
+                                'resize_keyboard' => true,
+                                'one_time_keyboard' => true,
+                            ];
+                            $encodedKeyboard = json_encode($keyboard);
+                            $this->http->post("sendMessage",[
+                                "form_params" => [
+                                    'chat_id' => $chat_id,
+                                    'text' => "Botimiz sizni qoniqtirmaganidan afsusdamiz 😔. \nBizni yaxshilashga yordam bering, \nsharh va takliflaringizni qoldiring👇🏻. \nYaxshilashga harakat qilamiz🙏🏻.",
+                                    'reply_markup' => $encodedKeyboard,
+                                ]
+                                ]);
+                            }
+                        public function yomon(int $chat_id){
+
+                            $keyboard = [
+                                'keyboard' => [
+                                    [['text' => '🔥 Maxsulotlar'],['text' => '📥 Savat']],
+                                    [['text' => '💼 Hamkorlik'],['text' => "ℹ️ Ma'lumot"]],
+                                ],
+                                'resize_keyboard' => true,
+                                'one_time_keyboard' => true,
+                            ];
+                            $encodedKeyboard = json_encode($keyboard);
+                            $this->http->post("sendMessage",[
+                                "form_params" => [
+                                    'chat_id' => $chat_id,
+                                    'text' => "Botimiz sizni qoniqtirmaganidan afsusdamiz 😔. Bizni yaxshilashga yordam bering, sharh va takliflaringizni qoldiring👇🏻. Yaxshilashga harakat qilamiz🙏🏻",
+                                    'reply_markup' => $encodedKeyboard,
+                                ]
+                                ]);
+                            }
+                        public function shikoyat(int $chat_id){
+                            $keyboard = [
+                                'keyboard' => [
+                                    [['text' => '🔥 Maxsulotlar'],['text' => '📥 Savat']],
+                                    [['text' => '💼 Hamkorlik'],['text' => "ℹ️ Ma'lumot"]],
+                                ],
+                                'resize_keyboard' => true,
+                                'one_time_keyboard' => true,
+                            ];
+                            $encodedKeyboard = json_encode($keyboard);
+                            $this->http->post("sendMessage",[
+                                "form_params" => [
+                                    'chat_id' => $chat_id,
+                                    'text' => "Botimiz sizni qoniqtirmaganidan afsusdamiz 😔. Bizni yaxshilashga yordam bering, sharh va takliflaringizni qoldiring👇🏻. Yaxshilashga harakat qilamiz🙏🏻",
+                                    'reply_markup' => $encodedKeyboard,
+                                ]
+                                ]);
+                            }
+                        public function savat(int $chat_id){
+                            $keyboard = [
+                                'keyboard' => [
+                                    [['text' => '🔥 Maxsulotlar'],['text' => '📥 Savat']],
+                                    [['text' => '💼 Hamkorlik'],['text' => "ℹ️ Ma'lumot"]],
+                                ],
+                                'resize_keyboard' => true,
+                                'one_time_keyboard' => true,
+                            ];
+                            $encodedKeyboard = json_encode($keyboard);
+                            $this->http->post("sendMessage",[
+                                "form_params" => [
+                                    'chat_id' => $chat_id,
+                                    'text' => "Savatingiz:\n\nJami: 0 UZS",
+                                    'reply_markup' => $encodedKeyboard,
+                                ]
+                                ]);
+                            }
+                        public function mahsulotlar(int $chat_id){
+                            // $keyboard = [
+                            //     'keyboard' => [
+                            //         [['text' => '🚖 Buyurtma berish'],['text' => '📥 Savat']],
+                            //         [['text' => 'tchk'],['text' => "Troll.uz"],['text' => "Timur Alihonov"]],
+                            //         [['text' => 'Konsta'],['text' => "Go uz"],['text' => "#ЧЗХ"]],
+                            //         [['text' => 'Subyektiv'],['text' => "Shahzoda"],['text' => "Chumoli"]],
+                            //         [['text' => '🏠 Bosh menyu']],
+                            //     ],
+                            //     'resize_keyboard' => true,
+                            //     'one_time_keyboard' => true,
+                            // ];
+                            $keyboard = [
+                                'keyboard' => [
+                                    [['text' => '🚖 Buyurtma berish'],['text' => '📥 Savat']],
+                                    [['text' => 'Subyektiv'],['text' => "Chumoli"]],
+                                    [['text' => '🏠 Bosh menyu']],
+                                ],
+                                'resize_keyboard' => true,
+                                'one_time_keyboard' => true,
+                            ];
+                            $encodedKeyboard = json_encode($keyboard);
+                            $this->http->post("sendMessage",[
+                                "form_params" => [
+                                    'chat_id' => $chat_id,
+                                    'text' => "Bo'limni tanlang 👇🏻",
+                                    'reply_markup' => $encodedKeyboard,
+                                ]
+                                ]);
+                            }
+                        public function chumoli(int $chat_id){
+                            $keyboard = [
+                                'keyboard' => [
+                                    [['text' => '⬅️ Ortga']],
+                                    [['text' => '🚖 Buyurtma berish'],['text' => "📥 Savat"]],
+                                    [['text' => 'Futbolkalar']],
+                                    [['text' => '🏠 Bosh menyu']],
+                                ],
+                                'resize_keyboard' => true,
+                                'one_time_keyboard' => true,
+                            ];
+                            $encodedKeyboard = json_encode($keyboard);
+                            $this->http->post("sendMessage",[
+                                "form_params" => [
+                                    'chat_id' => $chat_id,
+                                    'text' => "Bo'limni tanlang👇🏻",
+                                    'reply_markup' => $encodedKeyboard,
+                                ]
+                                ]);
+                            }
+                            public function subyektiv(int $chat_id){
+                                $keyboard = [
+                                    'keyboard' => [
+                                        [['text' => '⬅️ Ortga']],
+                                        [['text' => '🚖 Buyurtma berish'],['text' => "📥 Savat"]],
+                                        [['text' => 'Futbolkalar']],
+                                        [['text' => '🏠 Bosh menyu']],
+                                    ],
+                                    'resize_keyboard' => true,
+                                    'one_time_keyboard' => true,
+                                ];
+                                $encodedKeyboard = json_encode($keyboard);
+                                $this->http->post("sendMessage",[
+                                    "form_params" => [
+                                        'chat_id' => $chat_id,
+                                        'text' => "Bo'limni tanlang👇🏻",
+                                        'reply_markup' => $encodedKeyboard,
+                                    ]
+                                    ]);
+                                }                            
+                            public function orqaga(int $chat_id){
+                                $keyboard = [
+                                    'keyboard' => [
+                                        [['text' => '🔥 Maxsulotlar'],['text' => '📥 Savat']],
+                                        [['text' => '💼 Hamkorlik'],['text' => "ℹ️ Ma'lumot"]],
+                                        [['text' => '🌐 Tilni tanlash']],
+                                    ],
+                                    'resize_keyboard' => true,
+                                    'one_time_keyboard' => true,
+                                ];
+                                $encodedKeyboard = json_encode($keyboard);
+                                $this->http->post("sendMessage",[
+                                    "form_params" => [
+                                        'chat_id' => $chat_id,
+                                        'text' => "Savatingiz:\n\nJami: 0 UZS",
+                                        'reply_markup' => $encodedKeyboard,
+                                    ]
+                                    ]);
+                                }
+
+                        }

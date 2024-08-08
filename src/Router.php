@@ -17,4 +17,10 @@ class Router{
         }
         return false;
     }
+
+    public static function get($path,$callback){
+        if($_SERVER['REQUEST_METHOD'] === 'GET' && $_SERVER['REQUEST_URI'] === $path){
+            $callback();
+        }
+    }
 }

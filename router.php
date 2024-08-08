@@ -8,3 +8,5 @@ if($router->isTelegramUpdate()){
     require 'routes/telegram.php';
     return;
 }
+
+require 'routes/admin_panel.php';
