@@ -13,49 +13,35 @@
     <div class="container">
         <table class="table">
             <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Color</th>
-                <th scope="col">Size</th>
-                <th scope="col">Bloger_Id</th>
-                <th scope="col">Actions</th>
-              </tr>
+                <?php
+                $task = new Task();
+                $products = $task->getAllProduct();                    
+                ?>
+
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Bloger_Id</th>
+                    <th scope="col">Actions</th>
+                  </tr>
             </thead>
             <tbody>
+            <?php foreach($products as $product): ?>    
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td></td>
-                <td></td>
+                <th scope="row"><?= $product['id'] ?></th>
+                <td><?= $product['name'] ?></td>
+                <td><?= $product['price'] ?></td>
+                <td><?= $product['color'] ?></td>
+                <td><?= $product['size'] ?></td>
+                <td><?= $product['bloger_id'] ?></td>
                 <td>
                     <button type="button" class="btn btn-danger">Delete</button>
                 </td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </td>
-              </tr>
+            <?php endforeach;?>
             </tbody>
         </table>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">Add</button>
@@ -92,8 +78,8 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Add</button>
                     </div>
                 </div>
             </div>

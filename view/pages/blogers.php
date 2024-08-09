@@ -12,6 +12,10 @@
 <body>
     <div class="container">
         <table class="table">
+                <?php
+                $task = new Task();
+                $blogers = $task->getAllBlogers();                    
+                ?>
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -19,20 +23,19 @@
                 </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Chumoli</td>
+
+            <?php foreach($blogers as $bloger): ?>                  
+            
+                <tr>
+                <th scope="row"><?= $bloger['id'] ?></th>
+                <td><?= $bloger['name'] ?></td>
                 <td>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-danger" name="id">Delete</button>
                 </td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Troll.uz</td>
-                <td>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </td>
-              </tr>
+            
+            <?php endforeach?>  
+
             </tbody>
         </table>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">Add</button>
@@ -40,22 +43,27 @@
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addModalLabel">Add Product</h5>
+                        <h5 class="modal-title" id="addModalLabel">Add Bloger</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <form>
+                    
+                    <form action="/blogers" method="post">
+                        
+                        <div class="modal-body">
                             <div class="mb-3">
                                 <label for="itemName" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="itemName">
+                                <input type="text" class="form-control" id="itemName" name="name">
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save</button>
-                    </div>
+                        </div>
+                        
+                        <div class="modal-footer" action="/blogers">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </div>
+                    </form>
+                        
                 </div>
             </div>
         </div>

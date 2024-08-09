@@ -1,5 +1,5 @@
 CREATE TABLE `blogers` (
-  `id` INTEGER PRIMARY KEY,
+  `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `name` VARCHAR(50)
 );
 
@@ -13,13 +13,13 @@ CREATE TABLE `product` (
 );
 
 CREATE TABLE `basket` (
-  `id` INT PRIMARY KEY,
+  `id` INT PRIMARY KEY AUTO_INCREMENT,
   `product_id` INT,
   `count` INT
 );
 
 CREATE TABLE `client` (
-  `id` INT PRIMARY KEY,
+  `id` INT PRIMARY KEY AUTO_INCREMENT,
   `basket_id` INT,
   `balance` FLOAT
 );

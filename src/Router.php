@@ -23,4 +23,9 @@ class Router{
             $callback();
         }
     }
+    public static function post($path,$callback){
+        if($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['REQUEST_URI'] === $path){
+            $callback();
+        }
+    }
 }
