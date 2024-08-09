@@ -17,7 +17,26 @@ class Bot{
     public function getUpdates(){
         return json_decode(file_get_contents("php://input"));
     }
-
+    public function mahsulotlar(int $chat_id){
+        $blogers = (new Task())->getAllBlogers();
+        $keyboard = [
+            'keyboard' => [
+                [['text' => '🚖 Buyurtma berish'],['text' => '📥 Savat']],
+                [['text' => 'Subyektiv'],['text' => "Chumoli"]],
+                [['text' => '🏠 Bosh menyu']],
+            ],
+            'resize_keyboard' => true,
+            'one_time_keyboard' => true,
+        ];
+        $encodedKeyboard = json_encode($keyboard);
+        $this->http->post("sendMessage",[
+            "form_params" => [
+                'chat_id' => $chat_id,
+                'text' => "Bo'limni tanlang 👇🏻",
+                'reply_markup' => $encodedKeyboard,
+            ]
+            ]);
+        }
     public function handleStartCommand(int $chat_id){
         $keyboard = [
             'keyboard' => [
@@ -39,21 +58,14 @@ class Bot{
             ]);
     }
 
-    public function handleStopCommand(int $chat_id){
-        $this->http->post("sendMessage",[
-            "form_params" => [
-                'chat_id' => $chat_id,
-                'text' => 'Sizni yana kutamiz! 😊',
-            ]
-            ]);
-    }
-
     public function hamkorlik(int $chat_id){
         
         $keyboard = [
             'keyboard' => [
                 [['text' => '🔥 Maxsulotlar'],['text' => '📥 Savat']],
                 [['text' => '💼 Hamkorlik'],['text' => "ℹ️ Ma'lumot"]],
+                [['text' => '🌐 Tilni tanlash']],
+
             ],
             'resize_keyboard' => true,
             'one_time_keyboard' => true,
@@ -66,6 +78,14 @@ class Bot{
                 'reply_markup' => $encodedKeyboard,
             ]
             ]);
+        }
+        public function handleStopCommand(int $chat_id){
+            $this->http->post("sendMessage",[
+                "form_params" => [
+                    'chat_id' => $chat_id,
+                    'text' => 'Sizni yana kutamiz! 😊',
+                ]
+                ]);
         }
         public function malumot(int $chat_id){
         
@@ -263,36 +283,7 @@ class Bot{
                                 ]
                                 ]);
                             }
-                        public function mahsulotlar(int $chat_id){
-                            // $keyboard = [
-                            //     'keyboard' => [
-                            //         [['text' => '🚖 Buyurtma berish'],['text' => '📥 Savat']],
-                            //         [['text' => 'tchk'],['text' => "Troll.uz"],['text' => "Timur Alihonov"]],
-                            //         [['text' => 'Konsta'],['text' => "Go uz"],['text' => "#ЧЗХ"]],
-                            //         [['text' => 'Subyektiv'],['text' => "Shahzoda"],['text' => "Chumoli"]],
-                            //         [['text' => '🏠 Bosh menyu']],
-                            //     ],
-                            //     'resize_keyboard' => true,
-                            //     'one_time_keyboard' => true,
-                            // ];
-                            $keyboard = [
-                                'keyboard' => [
-                                    [['text' => '🚖 Buyurtma berish'],['text' => '📥 Savat']],
-                                    [['text' => 'Subyektiv'],['text' => "Chumoli"]],
-                                    [['text' => '🏠 Bosh menyu']],
-                                ],
-                                'resize_keyboard' => true,
-                                'one_time_keyboard' => true,
-                            ];
-                            $encodedKeyboard = json_encode($keyboard);
-                            $this->http->post("sendMessage",[
-                                "form_params" => [
-                                    'chat_id' => $chat_id,
-                                    'text' => "Bo'limni tanlang 👇🏻",
-                                    'reply_markup' => $encodedKeyboard,
-                                ]
-                                ]);
-                            }
+                        
                         public function chumoli(int $chat_id){
                             $keyboard = [
                                 'keyboard' => [

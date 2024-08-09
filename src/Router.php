@@ -19,7 +19,7 @@ class Router{
     }
 
     public static function get($path,$callback){
-        if($_SERVER['REQUEST_METHOD'] === 'GET' && $_SERVER['REQUEST_URI'] === $path){
+        if($_SERVER['REQUEST_METHOD'] === 'GET' && parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) === $path){
             $callback();
         }
     }

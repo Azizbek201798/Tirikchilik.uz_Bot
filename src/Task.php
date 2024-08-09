@@ -12,6 +12,9 @@ class Task{
                                      VALUES(:name);");
         $stmt->bindParam(":name",$name);
         $stmt->execute();
+
+        header('Location: /blogers');
+        exit();
     }
 
     public function getAllBlogers(){
@@ -20,15 +23,18 @@ class Task{
         return  $res->fetchAll();
     }
     public function getByIdBloger(int $id){
-        $stmt = $this->pdo->prepare("SELECT * FROM product WHERE id=:id");
+        $stmt = $this->pdo->prepare("SELECT * FROM blogers WHERE id=:id");
         $stmt->bindParam(":id",$id);
         $stmt->execute();
         return $stmt->fetch();
     }
     public function deleteBloger(int $id){
-        $stmt = $this->pdo->prepare("DELETE FROM product WHERE id=:id");
+        $stmt = $this->pdo->prepare("DELETE FROM blogers WHERE id=:id");
         $stmt->bindParam(":id",$id);
         $stmt->execute();
+
+        header('location: /blogers');
+        exit();
     }
 
     public function createProduct($bloger_id,$name,$price,$color,$size){
@@ -40,6 +46,9 @@ class Task{
         $stmt->bindParam(":color",$color);
         $stmt->bindParam(":size",$size);
         $stmt->execute();
+
+        header("Location: /products");
+        exit();
     }
     public function getAllProduct(){
         $res = $this->pdo->prepare("SELECT * FROM product");
@@ -56,6 +65,9 @@ class Task{
         $stmt = $this->pdo->prepare("DELETE FROM product WHERE id=:id");
         $stmt->bindParam(":id",$id);
         $stmt->execute();
+
+        header('Location: /products');
+        exit();
     }
 
 }

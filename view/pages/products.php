@@ -14,8 +14,8 @@
         <table class="table">
             <thead>
                 <?php
-                $task = new Task();
-                $products = $task->getAllProduct();                    
+                    $task = new Task();
+                    $products = $task->getAllProduct();                    
                 ?>
 
                   <tr>
@@ -38,7 +38,7 @@
                 <td><?= $product['size'] ?></td>
                 <td><?= $product['bloger_id'] ?></td>
                 <td>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <a href="/products&delete?id=<?= $product['id']?>" class="btn btn-danger">Delete</a>
                 </td>
               </tr>
             <?php endforeach;?>
@@ -54,36 +54,41 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                    
+                    <form action="/productsAdd" method="post">
+
                             <div class="mb-3">
                                 <label for="itemName" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="itemName">
+                                <input type="text" class="form-control" id="itemName" name="name">
                             </div>
                             <div class="mb-3">
                                 <label for="itemPrice" class="form-label">Price</label>
-                                <input type="text" class="form-control" id="itemPrice">
+                                <input type="text" class="form-control" id="itemPrice" name="price">
                             </div>
                             <div class="mb-3">
                                 <label for="itemPrice" class="form-label">Color</label>
-                                <input type="text" class="form-control" id="itemPrice">
+                                <input type="text" class="form-control" id="itemPrice" name="color">
                             </div>
                             <div class="mb-3">
                                 <label for="itemPrice" class="form-label">Size</label>
-                                <input type="text" class="form-control" id="itemPrice">
+                                <input type="text" class="form-control" id="itemPrice" name="size">
                             </div>
                             <div class="mb-3">
                                 <label for="itemPrice" class="form-label">Bloger_id</label>
-                                <input type="text" class="form-control" id="itemPrice">
+                                <input type="text" class="form-control" id="itemPrice" name="bloger_id">
                             </div>
-                        </form>
-                    </div>
+                    
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Add</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
                     </div>
+
+                    </form>
+
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
