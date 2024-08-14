@@ -84,3 +84,7 @@ if(isset($router->updates->message)){
         return;
     } 
 }
+if(isset($router -> updates -> callback_quey)){
+
+    
+}

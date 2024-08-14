@@ -4,7 +4,6 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use GuzzleHttp\Client;
-
 class Bot{
     public string $api;
     public Client $http;
